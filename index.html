@@ -33,7 +33,7 @@
         </div>
 
         <div class="flex items-center justify-center mt-10">
-          <button class="bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm display items-center justify-center">Connect to the Internet</button>
+          <button class="connect-btn bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm display items-center justify-center">Connect to the Internet</button>
         </div>
       </div>
     </div>
@@ -82,11 +82,14 @@
     
         <!-- contact button -->
         <div class="flex flex-col lg:flex-row md:flex-row " >
-          <button class="btn bg-[#09852B] py-8 text-lg text-white lg:ml-2 lg:mt-8 rounded-[6px]  md:mt-8 mt-8 w-[324px] ease-out duration-500 hover:scale-105 mr-3" id="connect-btn" style="font-family: Arial, Helvetica, sans-serif;">Connect now</button>
+          <button class="btn bg-[#09852B] py-8 text-lg text-white lg:ml-2 lg:mt-8 rounded-[6px]  md:mt-8 mt-8 w-[324px] ease-out duration-500 hover:scale-105 mr-3 connect-btn" id="connect-btn" style="font-family: Arial, Helvetica, sans-serif;">Connect now</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Video Iframe -->
+  <iframe id="video-iframe" width="560" height="315" src="about:blank" frameborder="0" allowfullscreen></iframe>
  
   <!-- Script -->
   <script src="js/tailwind.config.js"></script>
@@ -96,43 +99,61 @@
       // Get the modal and backdrop
       var modal = document.getElementById("modal");
       var backdrop = document.getElementById("modal-backdrop");
-  
+
+      // Get the iframe element
+      var videoIframe = document.getElementById("video-iframe");
+
       // Get all elements with the class "connect-btn"
       var btns = document.querySelectorAll(".connect-btn");
-  
+
       // Function to handle button clicks
       function openModal() {
-        modal.style.display = "block";
-        backdrop.style.display = "block";
+        // After 30 seconds, play the video and show the modal
+        setTimeout(function() {
+            // Play the video in the iframe
+            videoIframe.src = "https://www.youtube.com/embed/bP4BeUjNkXc?autoplay=1";
+
+            // Show the modal
+            modal.style.display = "block";
+            backdrop.style.display = "block";
+        }, 300); // 30 seconds in milliseconds
+
+          // After 33 seconds (30 seconds for video + 3 seconds delay), display the form
+          setTimeout(function() {
+              // Hide the video
+              videoIframe.src = ""; // Empty source to stop the video
+
+              // Display the form
+              form.style.display = "block";
+          }, 300); // 33 seconds in milliseconds
       }
-  
+
       // Assign the openModal function to each button
       btns.forEach(function(btn) {
         btn.onclick = openModal;
       });
-  
+
       // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-  
+      var span = document.querySelector(".close");
+
       // When the user clicks on <span> (x), close the modal
       span.onclick = function() {
         closeModal();
       }
-  
+
       // Function to close the modal
       function closeModal() {
         modal.style.display = "none";
         backdrop.style.display = "none";
       }
-  
+
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
-        if (event.target == modal) {
+        if (event.target === modal) {
           closeModal();
         }
       }
     });
   </script>
-  
 </body>
 </html>
