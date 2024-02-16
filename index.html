@@ -12,8 +12,11 @@
 <body>
   <!-- start modal -->
   <div id="modal-backdrop" class="modal-backdrop close"></div>
+  
   <div id="modal" class="modal">
-    <div class="modal-content">
+    <iframe id="video-iframe" style="display: block;" width="100%" height="315" src="https://www.youtube.com/embed/bP4BeUjNkXc?si=4mxZBXk6ecWULugT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <div id="modal-conten" class="modal-content" style="display: none">
       <!-- Modal content goes here -->
       <p class="text-[#09852B] font-bold text-2xl">Sign up</p>
 
@@ -55,7 +58,7 @@
       </ul>
     </div>
 
-    <button class="bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm" id="connect-btn" >Connect to the Internet</button>
+    <button class="bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm connect-btn" id="connect-btn" >Connect to the Internet</button>
   </div>
   <!-- Banner -->
   <div class="hero md:px-20 lg:px-20 px-8 bg-black pt-10">
@@ -89,7 +92,11 @@
   </div>
 
   <!-- Video Iframe -->
-  <iframe id="video-iframe" width="560" height="315" src="about:blank" frameborder="0" allowfullscreen></iframe>
+
+  <!-- Form -->
+  <div id="form" class="hidden">
+    <p>This is the form content</p>
+  </div>
  
   <!-- Script -->
   <script src="js/tailwind.config.js"></script>
@@ -100,32 +107,35 @@
       var modal = document.getElementById("modal");
       var backdrop = document.getElementById("modal-backdrop");
 
+      var modalContent = document.getElementById("modal-conten")
+
       // Get the iframe element
       var videoIframe = document.getElementById("video-iframe");
+
+      // Get the form element
+      var form = document.getElementById("form");
 
       // Get all elements with the class "connect-btn"
       var btns = document.querySelectorAll(".connect-btn");
 
       // Function to handle button clicks
       function openModal() {
-        // After 30 seconds, play the video and show the modal
+        // Play the video in the iframe
+        videoIframe.src = "https://www.youtube.com/embed/bP4BeUjNkXc?autoplay=1";
+
+        // Show the modal
+        modal.style.display = "block";
+        backdrop.style.display = "block";
+
+        // After 30 seconds, hide the video and show the modal content
         setTimeout(function() {
-            // Play the video in the iframe
-            videoIframe.src = "https://www.youtube.com/embed/bP4BeUjNkXc?autoplay=1";
-
-            // Show the modal
-            modal.style.display = "block";
-            backdrop.style.display = "block";
-        }, 300); // 30 seconds in milliseconds
-
-          // After 33 seconds (30 seconds for video + 3 seconds delay), display the form
-          setTimeout(function() {
-              // Hide the video
-              videoIframe.src = ""; // Empty source to stop the video
-
-              // Display the form
-              form.style.display = "block";
-          }, 300); // 33 seconds in milliseconds
+          // Hide the video
+          videoIframe.src = ""; // Empty source to stop the video
+          videoIframe.style.display = "none";
+          // Display the modal content
+         // Display the modal content
+          modalContent.style.display = "block";
+        }, 30000); // 30 seconds in milliseconds
       }
 
       // Assign the openModal function to each button
@@ -141,10 +151,11 @@
         closeModal();
       }
 
-      // Function to close the modal
       function closeModal() {
         modal.style.display = "none";
         backdrop.style.display = "none";
+        videoIframe.src = "";
+        videoIframe.style.display = "none";
       }
 
       // When the user clicks anywhere outside of the modal, close it
