@@ -32,7 +32,7 @@
         </div>
         <div class="mb-5">
           <label for="email" class="block mb-2 text-sm font-bold text-black dark:text-black">Email Address</label>
-          <input type="email" id="email" name="email" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:text-white dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
+          <input type="text" id="email" name="email" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:text-white dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
         </div>
 
         <div class="flex items-center justify-center mt-10">
@@ -65,7 +65,7 @@
     <div  class="h-full w-full flex items-center">
       <div class=" flex flex-col items-center w-full">
         <!-- title -->
-        <h1 class="mt-5 text-xl md:text-[50px] lg:text-[64px] text-center text-4xl leading-[1.25] text-white font-bold ">Welcome to the<br/><span class="text-[#09852B] text-2xl md:text-[50px] lg:text-[64px] ">Internet for Prosperity Project</span></h1>
+        <h1 class="mt-5  lg:mt-16 text-xl md:text-[50px] lg:text-[64px] text-center text-4xl leading-[1.25] text-white font-bold ">Welcome to the<br/><span class="text-[#09852B] text-2xl md:text-[50px] lg:text-[64px] ">Internet for Prosperity Project</span></h1>
 
         <!-- description -->
         <p class="text-white lg:text-2xl md:text-2xl text-xl font-bold mb-5 mt-2 md:mt-6 text-center">
@@ -79,7 +79,7 @@
             <img src="assets/images/cross.png" class="w-auto auto">
           </div>
           <div>
-            <img src="assets/images/image-1.png"  class="w-[150px] lg:w-auto ">
+            <img src="assets/images/image-1.png"  class="w-[150px] lg:w-[250px] ">
           </div>
         </div>
     
@@ -146,7 +146,7 @@
           // Display the modal content
          // Display the modal content
           modalContent.style.display = "block";
-        }, 1000); // 30 seconds in milliseconds
+        }, 10000); // 30 seconds in milliseconds
       }
 
       // Assign the openModal function to each button
@@ -183,7 +183,7 @@
         // showLoader(); // Show loader when form is submitted
 
         // Fetch API example (replace with your preferred method)
-        fetch(signupForm.action, {
+        fetch('http://localhost:3000/sign_up', {
             method: "POST",
             body: new FormData(signupForm)
         })

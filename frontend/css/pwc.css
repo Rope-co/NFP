@@ -129,7 +129,8 @@ button {
   color: var(--kwhite);
 }
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 100%;
   width: 100%;
   background-image: url("../assets/images/nfp_bg.svg");
   background-repeat: no-repeat;
