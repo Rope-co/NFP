@@ -24,15 +24,15 @@
       <form class="my-8 space-y-6" id="signupForm" action="/sign_up" method="POST">
         <div class="mb-5">
           <label for="name" class="block mb-2 text-sm font-bold text-black dark:text-black">Full Name</label>
-          <input type="text" id="name" name="name" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:text-white dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
+          <input type="text"  class="bg-white border border-[#A69797] h-[48px] text-sm rounded-lg  focus:border-green-900 block w-full p-2.5   dark:text-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]"  id="name" name="name"placeholder="" required />
         </div>
         <div class="mb-5">
           <label for="phone" class="block mb-2 text-sm font-bold text-black dark:text-black">Phone Number</label>
-          <input type="text" id="phone" name="phone" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:text-white dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
+          <input type="text" id="phone" name="phone" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
         </div>
         <div class="mb-5">
           <label for="email" class="block mb-2 text-sm font-bold text-black dark:text-black">Email Address</label>
-          <input type="text" id="email" name="email" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:text-white dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
+          <input type="text" id="email" name="email" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
         </div>
 
         <div class="flex items-center justify-center mt-10">
@@ -145,7 +145,7 @@
           // Display the modal content
          // Display the modal content
           modalContent.style.display = "block";
-        }, 10000); // 30 seconds in milliseconds
+        }, 1000); // 30 seconds in milliseconds
       }
 
       // Assign the openModal function to each button
