@@ -82,7 +82,7 @@ body {
 
 @media (max-height: 740px) {
   .element {
-    margin-top: 24%; /* Change margin-top for larger viewports */
+    padding-top: 30%; /* Change margin-top for larger viewports */
   }
 }
 

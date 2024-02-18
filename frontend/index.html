@@ -181,10 +181,25 @@
         console.log("u clicked me")
         // showLoader(); // Show loader when form is submitted
 
+        // Get form field values
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+
+        // Construct data object
+        var data = {
+          name: name,
+          phone: phone,
+          email: email
+        }; 
+
         // Fetch API example (replace with your preferred method)
-        fetch('http://localhost:3000/sign_up', {
+        fetch('http://localhost:5000/sign_up', {
             method: "POST",
-            body: new FormData(signupForm)
+            headers: {
+              'Content-Type': 'application/json' // Set content type to JSON
+            },
+            body: JSON.stringify(data) // Convert data object to JSON string
         })
 
         .then(response => {
