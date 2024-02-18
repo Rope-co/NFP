@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/pwc.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+</head>
+<body>
+  <!-- start modal -->
+  <div id="modal-backdrop" class="modal-backdrop close"></div>
+  
+  <div id="modal" class="modal">
+    <iframe id="video-iframe" style="display: block;" width="100%" height="315" src="https://www.youtube.com/embed/bP4BeUjNkXc?si=4mxZBXk6ecWULugT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <div id="modal-conten" class="modal-content" style="display: none">
+      <!-- Modal content goes here -->
+      <p class="text-[#09852B] font-bold text-2xl">Sign up</p>
+
+
+      <form class="my-8 space-y-6" id="signupForm" action="/sign_up" method="POST">
+        <div class="mb-5">
+          <label for="name" class="block mb-2 text-sm font-bold text-black dark:text-black">Full Name</label>
+          <input type="text"  class="bg-white border border-[#A69797] h-[48px] text-sm rounded-lg  focus:border-green-900 block w-full p-2.5   dark:text-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]"  id="name" name="name"placeholder="" required />
+        </div>
+        <div class="mb-5">
+          <label for="phone" class="block mb-2 text-sm font-bold text-black dark:text-black">Phone Number</label>
+          <input type="text" id="phone" name="phone" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
+        </div>
+        <div class="mb-5">
+          <label for="email" class="block mb-2 text-sm font-bold text-black dark:text-black">Email Address</label>
+          <input type="text" id="email" name="email" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
+        </div>
+
+        <div class="flex items-center justify-center mt-10">
+          <button class="connect-btn bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm display items-center justify-center" type="submit" id="submitButton">Connect to the Internet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- end modal -->
+
+  <!-- header -->
+  <div class="h-[90px] w-full bg-black fixed z-50 flex items-center justify-between px-4 md:px-20">
+    <div class="flex items-center space-x-3">
+      <div>
+        <img src="assets/images/image-1.png"  height="62" width="62">
+      </div>
+
+      <ul class="hidden md:flex items-center space-x-6 ">
+        <li class="text-white text-sm font-normal">Home</li>
+        <li class="text-white text-sm font-normal">Why Internet for Prosperity ?</li>
+        <li class="text-white text-sm font-normal">Gallery</li>
+      </ul>
+    </div>
+
+    <button class="bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm connect-btn" id="connect-btn" >Connect to the Internet</button>
+  </div>
+  <!-- Banner -->
+  <div class="hero  bg-black ">
+    <div  class="h-full w-full flex items-center justify-center">
+      <div class=" flex flex-col justify-center items-center w-full">
+        <!-- title -->
+        <h1 class="element lg:mt-[16vh]  lg:mt-16 text-xl md:text-[50px] lg:text-[64px] text-center text-4xl leading-[1.25] text-white font-bold ">Welcome to the<br/><span class="text-[#09852B] text-2xl md:text-[50px] lg:text-[64px] ">Internet for Prosperity Project</span></h1>
+
+        <!-- description -->
+        <p class="text-white lg:text-2xl md:text-2xl text-xl font-bold mb-5 mt-2 md:mt-6 text-center">
+          brought to you by
+        </p>
+        <div class="flex flex-col md:flex-row flex-row-reverse space-y-6 flex-row space-x-4 justify-evenly items-center ">
+          <div>
+            <img src="assets/images/image-1.png"  class="w-[150px] lg:w-[250px] ">
+          </div>
+          <div class="px-16">
+            <img src="assets/images/cross.png" class="w-[50px] h-[50px] lg:w-auto auto">
+          </div>
+          <div>
+            <img src="assets/images/image-2.svg" class="w-[250px] md:w-auto ">
+          </div>
+        </div>
+    
+        <!-- contact button -->
+        <div class="flex flex-col lg:flex-row md:flex-row pb-10">
+          <button class="btn text-white bg-[#09852B] py-8 text-lg text-white ml-0 lg:ml-2 lg:mt-8 rounded-[6px]  md:mt-8 mt-8 w-[324px] ease-out duration-500 hover:scale-105  md:mr-3 connect-btn" id="connect-btn" style="font-family: Arial, Helvetica, sans-serif;">Connect now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Iframe -->
+
+  <!-- Form -->
+  <div id="form" class="hidden">
+    <p>This is the form content</p>
+  </div>
+ 
+  <!-- Script -->
+  <script src="js/tailwind.config.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the modal and backdrop
+      var modal = document.getElementById("modal");
+      var backdrop = document.getElementById("modal-backdrop");
+
+      var modalContent = document.getElementById("modal-conten")
+      const signupForm = document.getElementById('signupForm');
+
+      // Get the iframe element
+      var videoIframe = document.getElementById("video-iframe");
+
+      // Get the form element
+      var form = document.getElementById("form");
+
+      // Get all elements with the class "connect-btn"
+      var btns = document.querySelectorAll(".connect-btn");
+
+      // Function to show the loader
+      function showLoader() {
+        submitButton.disabled = true; // Disable submit button while loading
+      }
+
+      // Function to hide the loader
+      function hideLoader() {
+        submitButton.disabled = false; // Enable submit button after loading
+      }
+
+      // Function to handle button clicks
+      function openModal() {
+        // Play the video in the iframe
+        videoIframe.src = "https://www.youtube.com/embed/bP4BeUjNkXc?autoplay=1";
+
+        // Show the modal
+        modal.style.display = "block";
+        backdrop.style.display = "block";
+
+        // After 30 seconds, hide the video and show the modal content
+        setTimeout(function() {
+          // Hide the video
+          videoIframe.src = ""; // Empty source to stop the video
+          videoIframe.style.display = "none";
+          // Display the modal content
+         // Display the modal content
+          modalContent.style.display = "block";
+        }, 1000); // 30 seconds in milliseconds
+      }
+
+      // Assign the openModal function to each button
+      btns.forEach(function(btn) {
+        btn.onclick = openModal;
+      });
+
+      // Get the <span> element that closes the modal
+      var span = document.querySelector(".close");
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        closeModal();
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+        backdrop.style.display = "none";
+        videoIframe.src = "";
+        videoIframe.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      }
+
+      // Event listener for form submission
+    signupForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        console.log("u clicked me")
+        // showLoader(); // Show loader when form is submitted
+
+        // Get form field values
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+
+        // Construct data object
+        var data = {
+          name: name,
+          phone: phone,
+          email: email
+        }; 
+
+        // Fetch API example (replace with your preferred method)
+        fetch('http://localhost:5000/sign_up', {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json' // Set content type to JSON
+            },
+            body: JSON.stringify(data) // Convert data object to JSON string
+        })
+
+        .then(response => {
+            if (response.ok) {
+                // If response is successful, hide loader
+                hideLoader();
+                // Redirect or handle success as needed
+            } else {
+                throw new Error('Failed to submit form');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error: hide loader
+            hideLoader();
+            // Display error message or take appropriate action
+        });
+    });
+    });
+  </script>
+</body>
+</html>

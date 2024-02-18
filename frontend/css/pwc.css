@@ -1,0 +1,408 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+/* ============ Variable Css ============= */
+:root{
+  --header-height: 3rem;
+  --vh-threshold: 667px;
+  /* ======== Colors =========== */
+  --show-menu : #FDFDFD;
+  --text-color: #434343;
+  /* --text-color: #C4C4C4; */
+  --text-color2: #B7B8BB;
+  --body-color: #FDFDFD;
+  --kwhite: #ffffff;
+  --kyellow: #EB8C00;
+  --klightYellow: #FFB600;
+  --kblack: #000000;
+  --kdarkGray : #111111;
+  --light-gradient: linear-gradient(#FCF4FF,#FDFBFE, #F6F6F6 50% );
+  /* ======= Fonts and Typography ======== */
+  --body-font : "Montserrat", sans-serif;
+  --biggest-font-size: 2.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* ======= Font Weight ============= */
+  --font-strong : 700;
+  --font-mediun: 500;
+  --font-semi-bold: 600;
+
+  /* ======= Margines =========== */
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /* ========= Z-index ============== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+  :root{
+      --biggest-font-size: 4rem;
+      --h1-font-size: 2.25rem;
+      --h2-font-size: 1.5rem;
+      --h3-font-size: 1.25rem;
+      --normal-font-size: 1rem;
+      --small-font-size: 0.875rem;
+      --smaller-font-size: 0.813rem;
+  }
+}
+
+/* ========== BASE ============= */
+*, ::before, ::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+*,html,
+body {
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Montserrat', sans-serif; */
+  position: relative;
+  /* color: var(--text-color); */
+  /* line-height: 1.0; */
+  font-size: var(--normal-font-size);
+  font-family: "DM Sans", sans-serif;
+}
+
+.element {
+  margin-top: 0; /* Default margin-top */
+}
+
+@media (max-height: 740px) {
+  .element {
+    padding-top: 30%; /* Change margin-top for larger viewports */
+  }
+}
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, p, ul, span{
+  margin: 0;
+  padding: 0;
+}
+
+p, span, li{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul{
+  list-style: none;
+  
+}
+
+a{
+  text-decoration: none;
+  color: unset;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+}
+
+.btn{
+  /* background-color:var(--kyellow); */
+  color: var(--kblack);
+  font-size: var(--normal-font-size);
+  height: 40px;
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 20rem; */
+  width: 200px !important;
+}
+
+.active.btn{
+  background-color: transparent;
+  border: 1px solid var(--kwhite);
+  color: var(--kwhite);
+}
+.hero {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-image: url("../assets/images/nfp_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ======= NAVBAR ============ */
+nav{
+  width: 100%;
+  height: 10vh;
+  background: #FFFFFF ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* display: none; */
+}
+
+nav > h2 {
+
+}
+
+.nav-right{
+  display: flex;
+}
+
+.nav-right > ul > li{
+  display: inline-block;
+  padding: 10px 20px;
+}
+.nav-right > ul > li > a{
+  color: var(--text-color2);
+  text-transform: uppercase;
+  font-size: var(--small-font-size);
+  font-weight: 400;
+}
+
+nav >.hambuger {
+  display: none;
+}
+
+/* List style type shape n color */
+.bootcamp__bullet .list__square li::before{
+ content: "\25A0";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: var(--klightYellow); /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+/* Discover  */
+.list__square  > li{
+  line-height: 1.8;
+  font-size: 18px;
+  margin-bottom: 1.2rem;
+  color: #2d2d2d;
+}
+
+/*=============== Small Banner ===================*/
+.small__banner{
+ background: #2d2d2d;
+  padding: 0.5rem 10rem;
+  
+  /* visibility: hidden; */
+}
+
+
+.small__banner > .title{
+  width: 85%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1214px ){
+  .problem{
+    font-size: 42px !important;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .hero {
+    height: 100vh;
+  }
+  .small__banner{
+    padding: 2rem 3.5rem 3rem;
+    border-radius: unset;
+  }
+
+  .small__banner > .title{
+    width: unset;
+    margin-bottom: 1.5rem;
+    text-align: unset;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  nav >.hambuger {
+    display: block;
+  }
+}
+
+/* Track Section */
+.bg__shadow{
+  background-color: var(--kwhite);
+}
+
+.bg-button {
+  box-shadow: 0px 10px 30px rgba(217, 87, 5, 0.2);}
+
+/* Green Gradient */
+.green-gradient {
+ background-color: #dedede;
+  background-size: cover;
+}
+
+/* UnderLine Pseudo */
+.custom-underline {
+  text-decoration: none; 
+  position: relative; 
+}   
+
+.custom-underline:after {
+  position: absolute;
+  content: '';
+  height: 4px;
+  /* adjust this to move up and down. you may have to adjust the line height of the paragraph if you move it down a lot. */
+  bottom: -20px; 
+  /****** 
+  optional values below 
+  ******/
+    
+  /* center - (optional) use with adjusting width   */
+  /* margin: 0 auto; */
+  left: 0;
+  right: 0;
+  width: 50px;
+  background: var(--klightYellow);
+  
+  /* optional animation */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.active.custom-underline:after{
+  margin: 0 auto;
+}
+
+
+/* *** Modal ***** */
+/* Style the modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  border-radius: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust the width as needed */
+  max-width: 800px; /* Example maximum width */
+  height: auto; /* Adjust the height as needed */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Style the modal content */
+.modal-content {
+  background-color: #ffffff;
+  max-width: 847px;
+  padding: 20px;
+  border: 1px solid #888;
+}
+
+/* Style the close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style the modal backdrop */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 900;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* optional hover classes used with anmiation */
+/* .custom-underline:hover:after {
+  width: 80%;
+  background: var(--klightYellow);
+} */
+
+.track__grid {
+  display: grid;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+@media  screen and (min-width: 368px) {
+  .track__grid{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media  screen and (min-width: 768px) {
+  .track__grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media  screen and (min-width: 960px) {
+  .track__grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media  screen and (min-width: 1200px) {
+  .track__grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media  screen and (min-width: 1400px) {
+  .track__grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 
+
+@media  screen and (min-width: 1500px) {
+  .track__grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 
+
+
+
+
+
+@media screen {
+  
+}
