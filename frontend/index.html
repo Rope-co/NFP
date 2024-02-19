@@ -35,8 +35,14 @@
           <input type="text" id="email" name="email" class="bg-white border border-[#A69797] h-[48px] text-gray-900 text-sm rounded-lg  focus:border-green-900 block w-full p-2.5 dark:bg-white dark:bg-white dark:placeholder-black dark:focus:ring-[#09852B] dark:focus:border-[#09852B]" placeholder="" required />
         </div>
 
-        <div class="flex items-center justify-center mt-10">
-          <button class="connect-btn bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm display items-center justify-center" type="submit" id="submitButton">Connect to the Internet</button>
+        <div class="flex items-center justify-center mt-10 relative">
+          <button class="relative connect-btn bg-[#09852B] rounded-[6px] h-[40px] px-10 text-white font-bold text-sm display items-center justify-center" type="submit" id="submitButton">
+            Connect to the Internet
+            <div class="invisible absolute inset-0 flex items-center justify-center" id="loaderContainer"> 
+              <div class="loader-spinner"></div> <!-- Loading spinner -->
+            </div>
+            <!-- <span class="sr-only">Loading...</span> -->
+          </button>
         </div>
       </form>
     </div>
@@ -178,8 +184,17 @@
       // Event listener for form submission
     signupForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
+        var loaderContainer = document.getElementById('loaderContainer');
+        var button = document.getElementById('submitButton');
+
         console.log("u clicked me")
         // showLoader(); // Show loader when form is submitted
+        document.getElementById('submitButton').disabled = true;
+        // Show loader
+        // Replace the "invisible" class with another class
+        loaderContainer.classList.replace("invisible", "visible");
+        // Clear button text
+        button.textContent = 'Loading...';
 
         // Get form field values
         var name = document.getElementById('name').value;
@@ -210,13 +225,28 @@
             } else {
                 throw new Error('Failed to submit form');
             }
+            // loaderContainer.classList.add('hidden');
+
         })
         .catch(error => {
             console.error('Error:', error);
             // Handle error: hide loader
             hideLoader();
+            loaderContainer.classList.add('hidden');
+            // Restore button text
+            button.textContent = 'Connect to the Internet';
             // Display error message or take appropriate action
-        });
+        })
+        .finally(() => {
+        // Enable the button
+          button.disabled = false;
+        // Hide loader
+          loaderContainer.classList.add('hidden');
+        // Restore button text
+          button.textContent = 'Connect to the Internet';
+          closeModal();
+          alert("Record Inserted Successfully");
+    });
     });
     });
   </script>
