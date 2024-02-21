@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const PORT = process.env.PORT || 5000;
+
 const mongoose = require('mongoose');
 mongoose.connect(
   'mongodb+srv://abiodun_mastery:Testing123@cluster0.jupgc1f.mongodb.net/?retryWrites=true&w=majority'
@@ -62,13 +64,6 @@ app.post('/sign_up', function (req, res) {
   });
 });
 
-app
-  .get('/', function (req, res) {
-    res.set({
-      'Access-control-Allow-Origin': '*',
-    });
-    return res.redirect('index.html');
-  })
-  .listen(5000);
-
-console.log('server listening at port 5000');
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
