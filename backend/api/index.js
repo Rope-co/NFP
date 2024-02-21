@@ -17,7 +17,7 @@ db.once('open', function (callback) {
 const app = express();
 app.use(
   cors({
-    origin: 'http://localhost:3000', // Allow requests from this origin
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST'], // Allow these HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
     optionsSuccessStatus: 200,
@@ -53,11 +53,13 @@ app.post('/sign_up', function (req, res) {
     timestamp: timestamp,
   };
   db.collection('details').insertOne(data, function (err, collection) {
-    if (err) throw err;
+    if (err) {
+      console.error('Error inserting record:', err);
+      return res.status(500).json({ message: 'Error inserting record' });
+    }
     console.log('Record inserted Successfully');
+    return res.status(200).json({ message: 'Record inserted successfully' });
   });
-
-  return res.redirect('frontend/index.html');
 });
 
 app
