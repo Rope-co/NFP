@@ -3,6 +3,17 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 5000;
+var whitelist = ['http://localhost:3000', '*'];
+
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
 
 const mongoose = require('mongoose');
 mongoose.connect(
@@ -17,14 +28,8 @@ db.once('open', function (callback) {
 });
 
 const app = express();
-app.use(
-  cors({
-    origin: ['http://localhost:3000', '*'],
-    methods: ['GET', 'POST'], // Allow these HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-    optionsSuccessStatus: 200,
-  })
-);
+app.use(cors(corsOptions));
+
 const path = require('path');
 app.use(bodyParser.json());
 app.use(
