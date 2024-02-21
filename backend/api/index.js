@@ -17,7 +17,7 @@ db.once('open', function (callback) {
 const app = express();
 app.use(
   cors({
-    // origin: 'http://127.0.0.1:5500', // Allow requests from this origin
+    origin: 'http://localhost:3000/nfp', // Allow requests from this origin
     methods: ['GET', 'POST'], // Allow these HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
     optionsSuccessStatus: 200,
