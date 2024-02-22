@@ -16,12 +16,14 @@ db.once('open', function () {
   console.log('Connected to MongoDB');
 });
 
-app.use(
-  cors({
-    origin: 'http://localhost:3000', // Replace with your frontend domain
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+// Allow requests from all origins with the cors middleware
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
