@@ -9,11 +9,7 @@
    "routes": [
     {
         "src": "/(.*)",
-        "dest": "/api/index.js",
-        "methods": ["GET", "POST"],
-        "headers": {
-          "Access-Control-Allow-Credentials": "*"
-        }
+        "dest": "/api/index.js"
     }
    ],
    "headers": [
