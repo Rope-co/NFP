@@ -8,7 +8,7 @@ const app = express();
 
 // Connect to MongoDB
 mongoose.connect(
-  'mongodb+srv://abiodun_mastery:Testing123@cluster0.jupgc1f.mongodb.net/?retryWrites=true&w=majority'
+  'mongodb+srv://tunderotimi:2TCiyAMGs4Mc4xH3@cluster0.aqv1uee.mongodb.net/nfp?retryWrites=true&w=majority'
 );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
@@ -30,7 +30,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define mongoose schema and model
 const detailsSchema = new mongoose.Schema({
-  name: String,
+  fname: String,
+  lname: String,
   email: String,
   phone: String,
   timestamp: Date,
@@ -39,11 +40,11 @@ const Details = mongoose.model('Details', detailsSchema);
 
 // Handle signup POST request
 app.post('/sign_up', async function (req, res) {
-  const { name, email, phone } = req.body;
+  const { fname, lname, email, phone } = req.body;
   const timestamp = new Date();
 
   try {
-    const newDetails = new Details({ name, email, phone, timestamp });
+    const newDetails = new Details({ fname, lname, email, phone, timestamp });
     await newDetails.save();
     console.log('Record inserted successfully');
     return res.status(200).json({ message: 'Record inserted successfully' });
